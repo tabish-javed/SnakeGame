@@ -13,7 +13,7 @@ class Snake:
         self.snake = []
         self.create_snake()
         self.plot_snake()
-        self.head = self.snake[0]
+        self.head = self.snake[0]  # Create a head attribute with 'snake[0]' content.
 
     def create_snake(self):
         """Create snake body (as list) with three turtle objects to start with."""
