@@ -1,6 +1,6 @@
 from turtle import Turtle
 ALIGNMENT = "center"
-FONT = ('Monospace', 10, 'normal')
+FONT = ('Monospace', 10, 'normal')  # A tuple constant
 
 
 class Scoreboard(Turtle):

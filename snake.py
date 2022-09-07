@@ -47,7 +47,8 @@ class Snake:
             self.snake[box_num].goto(new_x, new_y)
         self.head.forward(MOVE_DISTANCE)
 
-    """All 4 methods below doesn't allow snake to move backward if it's heading to forward OR"""
+    """All 4 methods below doesn't allow snake to move backward if it's heading to forward
+    and vice versa..."""
 
     def up(self):
         """Doesn't allow head/snake to go back opposit to direction it's moving in, i.e.

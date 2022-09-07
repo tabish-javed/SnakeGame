@@ -25,10 +25,10 @@ screen.onkey(snake.right, "Right")
 
 game_is_on = True
 while game_is_on:
-    # Update screen only after following loop completes a cycle,
-    # so snake moves smoothly with all three boxes
+    """Update screen only after following loop completes a cycle,
+    so snake moves smoothly with all three boxes"""
     screen.update()
-    time.sleep(0.1)  # Reduce the time of loop tenth of a second.
+    time.sleep(0.1)  # Reduce the time of loop by tenth of a second.
     snake.move()
 
     # Detect collision with food
