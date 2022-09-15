@@ -22,7 +22,7 @@ class Snake:
             self.add_boxes(number_of_boxes)
 
     def plot_snake(self):
-        """Sets starting position of snake (a list of three objects) at screen cordinates"""
+        """Sets starting position of snake (a list of three objects) at screen coordinates"""
         for i in range(0, len(self.snake)):
             self.snake[i].goto(-20 * i, 0)
 
@@ -47,11 +47,18 @@ class Snake:
             self.snake[box_num].goto(new_x, new_y)
         self.head.forward(MOVE_DISTANCE)
 
+    def reset(self):
+        for box in self.snake:
+            box.hideturtle()
+        self.snake.clear()
+        self.create_snake()
+        self.head = self.snake[0]
+
     """All 4 methods below doesn't allow snake to move backward if it's heading to forward
     and vice versa..."""
 
     def up(self):
-        """Doesn't allow head/snake to go back opposit to direction it's moving in, i.e.
+        """Doesn't allow head/snake to go back opposite to direction it's moving in, i.e.
         this code below; doesn't allow head to go up if it's heading down."""
         if self.head.heading() != DOWN:
             self.head.setheading(90)

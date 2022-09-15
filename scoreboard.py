@@ -11,24 +11,35 @@ class Scoreboard(Turtle):
         self.color("white")
         self.hideturtle()
         self.penup()
-        self.setposition(-250, 270)
+        self.goto(0, 270)
         self.score = 0
+        self.high_score = self.read_data()
         self.update_score()
 
     def update_score(self):
         """Display/update score on top left corner of the screen"""
-        self.write(f"Score: {self.score}", move=False,
+        self.clear()
+        self.write(f"Score: {self.score} High Score: {self.high_score}",
                    align=ALIGNMENT, font=FONT)
 
-    def game_over(self):
-        """Display 'GAME OVER' message on center of the screen"""
-        self.goto(0, 0)
-        self.write("GAME OVER!", move=False,
-                   align=ALIGNMENT, font=FONT)
+    def reset(self):
+        if self.score > self.high_score:
+            self.high_score = self.score
+        self.write_data()
+        self.score = 0
+        self.update_score()
 
     def increase_score(self):
         """Increment score attribute by 1 each time this functions is called,
         and clear the previous score displayed and overwrite new score."""
         self.score += 1
-        self.clear()
         self.update_score()
+
+    def read_data(self):
+        with open("high_score.txt", mode="r") as data:
+            self.high_score = int(data.read())
+        return self.high_score
+
+    def write_data(self):
+        with open("high_score.txt", mode="w") as data:
+            data.write(str(self.high_score))

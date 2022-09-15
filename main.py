@@ -39,17 +39,17 @@ while game_is_on:
 
     # Detect collision with wall
     if snake.head.xcor() > 280 or snake.head.xcor() < -280 or snake.head.ycor() > 280 or snake.head.ycor() < -280:
-        game_is_on = False
-        scoreboard.game_over()
+        scoreboard.reset()
+        snake.reset()
 
     # Detect collision with tail.
     for segment in snake.snake[1:]:  # We used python slicing of list/tuple here
-        """above line of code itirates through the list of objects,
-        skipping the very first one, which is; '0' and loops thorugh
+        """above line of code iterates through the list of objects,
+        skipping the very first one, which is; '0' and loops through
         until the list is over"""
         if snake.head.distance(segment) < 10:
-            game_is_on = False
-            scoreboard.game_over()
+            scoreboard.reset()
+            snake.reset()
 
 
 screen.exitonclick()
